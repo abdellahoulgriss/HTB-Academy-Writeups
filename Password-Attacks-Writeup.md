@@ -31,6 +31,8 @@ This document demonstrates comprehensive understanding of fundamental password a
 
 ## Exercises & Methodology
 
+![alt text](screenshots/Password-Attacks/1.PNG)
+
 ### 1. Introduction to Password Cracking
 
 **Concept:** Understanding hash functions and common cracking methods
@@ -41,6 +43,8 @@ This document demonstrates comprehensive understanding of fundamental password a
 ```bash
 echo -n "Academy#2025" | sha1sum
 ```
+![alt text](screenshots/Password-Attacks/2.PNG)
+
 **Result:** `750fe4b402dc9f91cedf09b652543cd85406be8c`
 
 **Key Takeaway:** Hash functions are one-way operations, but weak passwords remain vulnerable to cracking attempts.
@@ -56,6 +60,8 @@ echo -n "Academy#2025" | sha1sum
 ```bash
 john --single hashfile.txt
 ```
+![alt text](screenshots/Password-Attacks/3.PNG)
+
 **Result:** `NAITSABES`
 
 
@@ -66,6 +72,9 @@ john --single hashfile.txt
 ```bash
 john --wordlist=/usr/share/wordlists/rockyou.txt --format=ripemd-128 hashfile.txt
 ```
+
+![alt text](screenshots/Password-Attacks/4.PNG)
+
 **Result:** `50cent`
 
 
@@ -79,6 +88,9 @@ john --wordlist=/usr/share/wordlists/rockyou.txt --format=ripemd-128 hashfile.tx
 echo "e3e3ec5831ad5e7288241960e5d4fdb8" > hash.txt
 john --format=raw-md5 hash.txt
 ```
+
+![alt text](screenshots/Password-Attacks/5.PNG)
+
 **Result:** `crazy!`
 
 
@@ -89,7 +101,14 @@ john --format=raw-md5 hash.txt
 ```bash
 hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
 ```
-**Technical Note:** Required switching to HTB machine due to Kali VM memory limitations (2GB RAM insufficient for GPU-accelerated cracking)
+![alt text](screenshots/Password-Attacks/6.PNG)
+
+![alt text](screenshots/Password-Attacks/7.PNG)
+
+
+**Technical Note:** Required switching to HTB machine due to Kali VM memory limitations (2GB RAM insufficient for GPU-accelerated cracking , i advise you if you gonna work with kali or other distro from your own machine give it at least 4 or 6 GB of RAM)
+
+![alt text](screenshots/Password-Attacks/8.PNG)
 
 **Result:** `c0wb0ys1`
 
@@ -98,6 +117,8 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 
 
 **Exercise 3:** Mask attack implementation
+
+![alt text](screenshots/Password-Attacks/9.PNG)
 **Result:** `Mouse5!`
 
 
@@ -108,8 +129,11 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 ### 4. Custom Wordlists and OSINT Techniques
 
 **Concept:** Leveraging organizational and personal information for targeted attacks
-
 **Exercise:** Crack organization-specific password
+
+![alt text](screenshots/Password-Attacks/10.PNG)
+![alt text](screenshots/Password-Attacks/11.PNG)
+![alt text](screenshots/Password-Attacks/12.PNG)
 **Result:** `Baseball1998!`
 
 
@@ -119,6 +143,9 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 ### 5. Protected Files Cracking
 
 **Exercise:** Decrypt password-protected document
+![alt text](screenshots/Password-Attacks/13.PNG)
+![alt text](screenshots/Password-Attacks/14.PNG)
+
 **Result:** `beethoven`
 
 **Historical Analysis:** Discovered previous password: `L0veme`
@@ -134,6 +161,8 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 # Hash extraction from VHD file
 # Hashcat cracking implementation
 ```
+![alt text](screenshots/Password-Attacks/15.PNG)
+
 **Result:** `francisco`
 
 
@@ -145,7 +174,10 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 
 **Exercise 1:** WinRM Service Compromise
 - **Tools:** CrackMapExec, evil-winrm
-- **Credentials Found:** [Username]:[Password]
+- **Credentials Found:** 
+![alt text](screenshots/Password-Attacks/16.PNG)
+![alt text](screenshots/Password-Attacks/17.PNG)
+![alt text](screenshots/Password-Attacks/18.PNG)
 - **Flag Captured:** `HTB{That5Novemb3r}`
 
 
@@ -165,11 +197,17 @@ crackmapexec ssh 10.129.131.108 -u username.list -p password.list
 **Exercise 3:** RDP Service Access
 - **Credentials:** `chris:789456123`
 - **Tools:** xfreerdp
+![alt text](screenshots/Password-Attacks/19.PNG)
+![alt text](screenshots/Password-Attacks/20.PNG)
 - **Flag Captured:** `HTB{R3m0t3DeskIsw4yT00easy}`
 
 
 
 **Exercise 4:** SMB Service Infiltration
+![alt text](screenshots/Password-Attacks/21.PNG)
+![alt text](screenshots/Password-Attacks/22.PNG)
+![alt text](screenshots/Password-Attacks/23.PNG)
+
 - **Flag Captured:** `HTB{S4ndM4ndB33}`
 
 
