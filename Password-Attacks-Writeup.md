@@ -177,7 +177,9 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 
 **Exercise 1:** WinRM Service Compromise
 - **Tools:** CrackMapExec, evil-winrm
+
 - **Credentials Found:** 
+
 ![alt text](screenshots/Password-Attacks/16.PNG)
 
 ![alt text](screenshots/Password-Attacks/17.PNG)
@@ -200,16 +202,21 @@ crackmapexec ssh 10.129.131.108 -u username.list -p password.list
 
 
 **Exercise 3:** RDP Service Access
+
 - **Credentials:** `chris:789456123`
+
 - **Tools:** xfreerdp
+
 ![alt text](screenshots/Password-Attacks/19.PNG)
 
 ![alt text](screenshots/Password-Attacks/20.PNG)
+
 - **Flag Captured:** `HTB{R3m0t3DeskIsw4yT00easy}`
 
 
 
 **Exercise 4:** SMB Service Infiltration
+
 ![alt text](screenshots/Password-Attacks/21.PNG)
 
 ![alt text](screenshots/Password-Attacks/22.PNG)
