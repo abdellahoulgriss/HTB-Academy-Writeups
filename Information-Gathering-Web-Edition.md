@@ -117,7 +117,7 @@ dig @10.129.42.195 inlanefreight.htb NS +short
 # Then, attempt a zone transfer
 dig @10.129.42.195 axfr inlanefreight.htb
 ```
-![alt text](screenshots/information-gathering/7-Dns Transfer.PNG)
+![alt text](<screenshots/information-gathering/7-Dns Transfer.PNG>)
 
 *Counted the number of resource records returned in the zone transfer.*
 
