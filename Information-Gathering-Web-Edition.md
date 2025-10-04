@@ -45,7 +45,7 @@ whois paypal.com
 whois tesla.com | grep mail
 ```
 *Parsed the output for the administrative contact email.*
-![alt text](2-Whois.PNG)
+![alt text](screenshots/information-gathering/2-Whois.PNG)
 
 **Answer:** `admin@dnstinations.com`
 
@@ -60,7 +60,7 @@ whois tesla.com | grep mail
 ```bash
 dig inlanefreight.com +short
 ```
-![alt text](3-Dns.PNG)
+![alt text](screenshots/information-gathering/3-Dns.PNG)
 **Answer:** `134.209.24.248`
 
 
@@ -70,7 +70,7 @@ dig inlanefreight.com +short
 ```bash
 dig -x 134.209.24.248 +short
 ```
-![alt text](4-Dns.PNG)
+![alt text](screenshots/information-gathering/4-Dns.PNG)
 
 **Answer:** `inlanefreight.com`
 
@@ -81,7 +81,7 @@ dig -x 134.209.24.248 +short
 ```bash
 dig facebook.com MX +short
 ```
-![alt text](5-DNS.PNG)
+![alt text](screenshots/information-gathering/5-DNS.PNG)
 
 **Answer:** `msgin.vvv.facebook.com`
 
@@ -98,7 +98,7 @@ sublist3r -d inlanefreight.com | grep inlanefreight.com
 ```
 *Used Sublist3r with the default wordlist to discover new subdomains.*
 
-![alt text](6-sub.PNG)
+![alt text](screenshots/information-gathering/6-sub.PNG)
 
 **Answer:** `my.inlanefreight.com`
 
@@ -117,7 +117,8 @@ dig @10.129.42.195 inlanefreight.htb NS +short
 # Then, attempt a zone transfer
 dig @10.129.42.195 axfr inlanefreight.htb
 ```
-![alt text](<7-Dns Transfer.PNG>)
+![alt text](screenshots/information-gathering/7-Dns Transfer.PNG)
+
 *Counted the number of resource records returned in the zone transfer.*
 
 **Answer:** `22`
@@ -153,7 +154,7 @@ ffuf -u http://94.237.57.155:42456/ -H "Host: FUZZ.inlanefreight.htb" -w /usr/sh
 **Q1: What is the full subdomain that is prefixed with "web"?**  
 **Answer:** `web17611.inlanefreight.htb`
 
-![alt text](8-Virtual.PNG)
+![alt text](screenshots/information-gathering/8-Virtual.PNG)
 
 **Q2: What is the full subdomain that is prefixed with "vm"?**  
 **Answer:** `vm5.inlanefreight.htb`
@@ -184,7 +185,7 @@ curl -I http://app.inlanefreight.local/
 ```
 *Examined the `Server` HTTP response header.*
 
-![alt text](9-Fingerprint.PNG)
+![alt text](screenshots/information-gathering/9-Fingerprint.PNG)
 
 **Answer:** `2.4.41`
 
@@ -196,7 +197,7 @@ whatweb http://app.inlanefreight.local
 ```
 *Identified the CMS from the `MetaGenerator` tag.*
 
-![alt text](10-Fingerprint.PNG)
+![alt text](screenshots/information-gathering/10-Fingerprint.PNG)
 
 **Answer:** `Joomla`
 
@@ -237,14 +238,14 @@ python3 ReconSpider.py http://inlanefreight.com
 **Q1: How many Pen Testing Labs did HackTheBox have on the 8th August 2018?**  
 *Used the Wayback Machine to view the historical page.* 
 
-![alt text](11-Wayback.PNG)
+![alt text](screenshots/information-gathering/11-Wayback.PNG)
 
 **Answer:** `74`
 
 **Q2: How many members did HackTheBox have on the 10th June 2017?**  
 **Answer:** `3054`
 
-![alt text](12-Wayback.PNG)
+![alt text](screenshots/information-gathering/12-Wayback.PNG)
 
 **Q3: Going back to March 2002, what website did the facebook.com domain redirect to?**  
 **Answer:** `http://site.aboutface.com/`
@@ -260,7 +261,7 @@ python3 ReconSpider.py http://inlanefreight.com
 
 **Q7: According to wikipedia.com snapshot taken on February 9, 2003, how many articles were they already working on in the English version?**  
 
-![alt text](13-Wayback.PNG)
+![alt text](screenshots/information-gathering/13-Wayback.PNG)
 
 **Answer:** `104155`
 
@@ -277,7 +278,7 @@ whois inlanefreight.com
 ```
 *Located the Registrar IANA ID in the WHOIS record.*
 
-![alt text](14-Skill.PNG)
+![alt text](screenshots/information-gathering/14-Skill.PNG)
 
 **Answer:** `468`
 
