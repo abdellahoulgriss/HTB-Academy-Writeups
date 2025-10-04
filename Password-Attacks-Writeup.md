@@ -132,7 +132,9 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 **Exercise:** Crack organization-specific password
 
 ![alt text](screenshots/Password-Attacks/10.PNG)
+
 ![alt text](screenshots/Password-Attacks/11.PNG)
+
 ![alt text](screenshots/Password-Attacks/12.PNG)
 **Result:** `Baseball1998!`
 
@@ -144,6 +146,7 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 
 **Exercise:** Decrypt password-protected document
 ![alt text](screenshots/Password-Attacks/13.PNG)
+
 ![alt text](screenshots/Password-Attacks/14.PNG)
 
 **Result:** `beethoven`
@@ -176,7 +179,9 @@ hashcat -m 0 -a 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.
 - **Tools:** CrackMapExec, evil-winrm
 - **Credentials Found:** 
 ![alt text](screenshots/Password-Attacks/16.PNG)
+
 ![alt text](screenshots/Password-Attacks/17.PNG)
+
 ![alt text](screenshots/Password-Attacks/18.PNG)
 - **Flag Captured:** `HTB{That5Novemb3r}`
 
@@ -198,6 +203,7 @@ crackmapexec ssh 10.129.131.108 -u username.list -p password.list
 - **Credentials:** `chris:789456123`
 - **Tools:** xfreerdp
 ![alt text](screenshots/Password-Attacks/19.PNG)
+
 ![alt text](screenshots/Password-Attacks/20.PNG)
 - **Flag Captured:** `HTB{R3m0t3DeskIsw4yT00easy}`
 
@@ -205,7 +211,9 @@ crackmapexec ssh 10.129.131.108 -u username.list -p password.list
 
 **Exercise 4:** SMB Service Infiltration
 ![alt text](screenshots/Password-Attacks/21.PNG)
+
 ![alt text](screenshots/Password-Attacks/22.PNG)
+
 ![alt text](screenshots/Password-Attacks/23.PNG)
 
 - **Flag Captured:** `HTB{S4ndM4ndB33}`
