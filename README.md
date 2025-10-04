@@ -35,6 +35,13 @@ My name is Abdellah ,A passionate cybersecurity enthusiast with a focus on pract
 - Privilege escalation techniques
 - Credential harvesting and hash dumping
 
+**🔐 Password Security & Authentication**
+- Hash recognition and cracking (MD5, SHA1, SHA256, RIPEMD-128)
+- John the Ripper and Hashcat proficiency
+- Network service credential attacks (WinRM, SSH, RDP, SMB)
+- Protected file and archive decryption
+- Custom wordlist creation and OSINT-driven attacks
+
 **🛠️ Tools & Technologies**
 - **Reconnaissance:** whois, dig, Sublist3r, ffuf, whatweb, ReconSpider
 - **Exploitation:** Metasploit Framework, Meterpreter
