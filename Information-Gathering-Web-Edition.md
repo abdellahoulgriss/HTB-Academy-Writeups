@@ -33,7 +33,7 @@ whois paypal.com
 ```
 *Searched the output for the IANA ID field.*
 
-![whois-paypal](https://github.com/abdellahoulgriss/HTB-Academy-Writeups/blob/main/screenshots/information-gathering/1-Whois.png)
+![whois-paypal](screenshots/information-gathering/1-Whois.PNG)
 
 **Answer:** `292`
 
