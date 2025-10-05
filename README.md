@@ -15,6 +15,7 @@ My name is Abdellah ,A passionate cybersecurity enthusiast with a focus on pract
 | **[Information Gathering - Web Edition](Information-Gathering-Web-Edition.md)** | Comprehensive web reconnaissance techniques | DNS enumeration, subdomain discovery, virtual host brute-forcing, web fingerprinting, OSINT |
 | **[Using the Metasploit Framework](Metasploit-Framework-Writeup.md)** | Mastery of exploitation and post-exploitation | Metasploit framework, exploit development, payload delivery, privilege escalation, Meterpreter |
 | **[Password Attacks - Fundamentals](Password-Attacks-Writeup.md)** | Core password security and cracking techniques | Hash cracking, John the Ripper, Hashcat, network authentication attacks, protected file decryption |
+| **[Hacking WordPress](Hacking-WordPress-Writeup.md)** | Comprehensive WordPress penetration testing | WordPress enumeration, plugin vulnerability assessment, WPScan usage, theme editor exploitation, RCE techniques |
 
 
 ### Skills Demonstrated
