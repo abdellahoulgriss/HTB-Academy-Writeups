@@ -309,4 +309,3 @@ curl -s "http://blog.inlanefreight.local/wp-content/plugins/site-editor/editor/e
 ![alt text](screenshots/Hacking_Wordpress/41.PNG)
 
 **Answer:** `HTB{w0rdPr355_4SS3ssm3n7}`
-```
